@@ -1,11 +1,9 @@
-package com.qualitybitz.booksearchapp
+package com.qualitybitz.booksearchapp.ui.view
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.qualitybitz.booksearchapp.R
 import com.qualitybitz.booksearchapp.databinding.ActivityMainBinding
-import com.qualitybitz.booksearchapp.ui.view.FavoriteFragment
-import com.qualitybitz.booksearchapp.ui.view.SearchFragment
-import com.qualitybitz.booksearchapp.ui.view.SettingsFragment
 
 class MainActivity : AppCompatActivity() {
     private val binding: ActivityMainBinding by lazy {
