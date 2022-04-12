@@ -1,16 +1,14 @@
 package com.qualitybitz.booksearchapp.ui.viewmodel
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
+import androidx.lifecycle.*
 import com.qualitybitz.booksearchapp.data.model.SearchResponse
 import com.qualitybitz.booksearchapp.data.repository.BookSearchRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 class BookSearchViewModel(
-    private val bookSearchRepository: BookSearchRepository
+    private val bookSearchRepository: BookSearchRepository,
+    private val savedStateHandle: SavedStateHandle,
 ) : ViewModel() {
 
     // Api
@@ -24,5 +22,20 @@ class BookSearchViewModel(
                 _searchResult.postValue(body)
             }
         }
+    }
+
+    // SavedState
+    var query = String()
+        set(value) {
+            field = value
+            savedStateHandle.set(SAVE_STATE_KEY, value)
+        }
+
+    init {
+        query = savedStateHandle.get<String>(SAVE_STATE_KEY) ?: ""
+    }
+
+    companion object {
+        private const val SAVE_STATE_KEY = "query"
     }
 }

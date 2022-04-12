@@ -5,8 +5,9 @@
       <map>
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.40208333333333335" />
         <entry key="app/src/main/res/layout/fragment_favorite.xml" value="0.38697916666666665" />
-        <entry key="app/src/main/res/layout/fragment_search.xml" value="0.40208333333333335" />
+        <entry key="app/src/main/res/layout/fragment_search.xml" value="0.335" />
         <entry key="app/src/main/res/layout/fragment_settings.xml" value="0.40208333333333335" />
+        <entry key="app/src/main/res/layout/item_book_preview.xml" value="0.335" />
         <entry key="app/src/main/res/menu/bottom_navigation_menu.xml" value="0.40208333333333335" />
       </map>
     </option>
