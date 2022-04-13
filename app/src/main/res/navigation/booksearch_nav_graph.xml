@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/booksearch_nav_graph"
+    app:startDestination="@id/fragment_search">
+
+    <fragment
+        android:id="@+id/fragment_favorite"
+        android:name="com.qualitybitz.booksearchapp.ui.view.FavoriteFragment"
+        android:label="@string/favorite"
+        tools:layout="@layout/fragment_favorite" />
+    <fragment
+        android:id="@+id/fragment_search"
+        android:name="com.qualitybitz.booksearchapp.ui.view.SearchFragment"
+        android:label="@string/search"
+        tools:layout="@layout/fragment_search" />
+    <fragment
+        android:id="@+id/fragment_settings"
+        android:name="com.qualitybitz.booksearchapp.ui.view.SettingsFragment"
+        android:label="@string/settings"
+        tools:layout="@layout/fragment_settings" />
+</navigation>
