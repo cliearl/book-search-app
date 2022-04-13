@@ -9,15 +9,40 @@
         android:id="@+id/fragment_favorite"
         android:name="com.qualitybitz.booksearchapp.ui.view.FavoriteFragment"
         android:label="@string/favorite"
-        tools:layout="@layout/fragment_favorite" />
+        tools:layout="@layout/fragment_favorite">
+        <action
+            android:id="@+id/action_fragment_favorite_to_fragment_book"
+            app:destination="@id/fragment_book"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+    </fragment>
     <fragment
         android:id="@+id/fragment_search"
         android:name="com.qualitybitz.booksearchapp.ui.view.SearchFragment"
         android:label="@string/search"
-        tools:layout="@layout/fragment_search" />
+        tools:layout="@layout/fragment_search">
+        <action
+            android:id="@+id/action_fragment_search_to_fragment_book"
+            app:destination="@id/fragment_book"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+    </fragment>
     <fragment
         android:id="@+id/fragment_settings"
         android:name="com.qualitybitz.booksearchapp.ui.view.SettingsFragment"
         android:label="@string/settings"
         tools:layout="@layout/fragment_settings" />
+    <fragment
+        android:id="@+id/fragment_book"
+        android:name="com.qualitybitz.booksearchapp.ui.view.BookFragment"
+        android:label="@string/book_info"
+        tools:layout="@layout/fragment_book">
+        <argument
+            android:name="book"
+            app:argType="com.qualitybitz.booksearchapp.data.model.Book" />
+    </fragment>
 </navigation>

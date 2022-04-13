@@ -3,6 +3,8 @@ plugins {
     id 'org.jetbrains.kotlin.android'
     id 'kotlin-kapt'
     id 'com.google.android.libraries.mapsplatform.secrets-gradle-plugin'
+    id 'androidx.navigation.safeargs.kotlin'
+    id 'kotlin-parcelize'
 }
 
 android {
