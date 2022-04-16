@@ -5,7 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.activityViewModels
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.ItemTouchHelper
@@ -14,7 +14,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.snackbar.Snackbar
 import com.qualitybitz.booksearchapp.databinding.FragmentFavoriteBinding
 import com.qualitybitz.booksearchapp.ui.adapter.BookSearchPagingAdapter
-import com.qualitybitz.booksearchapp.ui.viewmodel.BookSearchViewModel
+import com.qualitybitz.booksearchapp.ui.viewmodel.FavoriteViewModel
 import com.qualitybitz.booksearchapp.util.collectLatestStateFlow
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -24,7 +24,8 @@ class FavoriteFragment : Fragment() {
     private val binding get() = _binding!!
 
     //    private lateinit var bookSearchViewModel: BookSearchViewModel
-    private val bookSearchViewModel by activityViewModels<BookSearchViewModel>()
+//    private val bookSearchViewModel by activityViewModels<BookSearchViewModel>()
+    private val favoriteViewModel by viewModels<FavoriteViewModel>()
 
     //    private lateinit var bookSearchAdapter: BookSearchAdapter
     private lateinit var bookSearchAdapter: BookSearchPagingAdapter
@@ -66,7 +67,7 @@ class FavoriteFragment : Fragment() {
 //        collectLatestStateFlow(bookSearchViewModel.favoriteBooks) {
 //            bookSearchAdapter.submitList(it)
 //        }
-        collectLatestStateFlow(bookSearchViewModel.favoritePagingBooks) {
+        collectLatestStateFlow(favoriteViewModel.favoritePagingBooks) {
             bookSearchAdapter.submitData(it)
         }
     }
@@ -116,10 +117,10 @@ class FavoriteFragment : Fragment() {
 
                 val pagedBook = bookSearchAdapter.peek(position)
                 pagedBook?.let { book ->
-                    bookSearchViewModel.deleteBook(book)
+                    favoriteViewModel.deleteBook(book)
                     Snackbar.make(view, "Book has deleted", Snackbar.LENGTH_SHORT).apply {
                         setAction("Undo") {
-                            bookSearchViewModel.saveBook(book)
+                            favoriteViewModel.saveBook(book)
                         }
                     }.show()
                 }
