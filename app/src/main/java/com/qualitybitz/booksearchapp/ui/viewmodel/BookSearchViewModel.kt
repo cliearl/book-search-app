@@ -3,16 +3,20 @@ package com.qualitybitz.booksearchapp.ui.viewmodel
 import androidx.lifecycle.*
 import androidx.paging.PagingData
 import androidx.paging.cachedIn
+import androidx.work.*
 import com.qualitybitz.booksearchapp.data.model.Book
 import com.qualitybitz.booksearchapp.data.model.SearchResponse
 import com.qualitybitz.booksearchapp.data.repository.BookSearchRepository
+import com.qualitybitz.booksearchapp.worker.CacheDeleteWorker
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import java.util.concurrent.TimeUnit
 
 class BookSearchViewModel(
     private val bookSearchRepository: BookSearchRepository,
+    private val workManager: WorkManager,
     private val savedStateHandle: SavedStateHandle,
 ) : ViewModel() {
 
@@ -55,6 +59,7 @@ class BookSearchViewModel(
 
     companion object {
         private const val SAVE_STATE_KEY = "query"
+        private const val WORKER_KEY = "cache_worker"
     }
 
     // DataStore
@@ -66,6 +71,14 @@ class BookSearchViewModel(
         bookSearchRepository.getSortMode().first()
     }
 
+    fun saveCacheDeleteMode(value: Boolean) = viewModelScope.launch(Dispatchers.IO) {
+        bookSearchRepository.saveCacheDeleteMode(value)
+    }
+
+    suspend fun getCacheDeleteMode() = withContext(Dispatchers.IO) {
+        bookSearchRepository.getCacheDeleteMode().first()
+    }
+
     // Paging
     val favoritePagingBooks: StateFlow<PagingData<Book>> =
         bookSearchRepository.getFavoritePagingBooks()
@@ -74,7 +87,7 @@ class BookSearchViewModel(
 
     private val _searchPagingResult = MutableStateFlow<PagingData<Book>>(PagingData.empty())
     val searchPagingResult: StateFlow<PagingData<Book>> = _searchPagingResult.asStateFlow()
-    
+
     fun searchBooksPaging(query: String) {
         viewModelScope.launch {
             bookSearchRepository.searchBooksPaging(query, getSortMode())
@@ -84,4 +97,25 @@ class BookSearchViewModel(
                 }
         }
     }
+
+    // WorkManager
+    fun setWork() {
+        val constraints = Constraints.Builder()
+            .setRequiresCharging(true)
+            .setRequiresBatteryNotLow(true)
+            .build()
+
+        val workRequest = PeriodicWorkRequestBuilder<CacheDeleteWorker>(15, TimeUnit.MINUTES)
+            .setConstraints(constraints)
+            .build()
+
+        workManager.enqueueUniquePeriodicWork(
+            WORKER_KEY, ExistingPeriodicWorkPolicy.REPLACE, workRequest
+        )
+    }
+
+    fun deleteWork() = workManager.cancelUniqueWork(WORKER_KEY)
+
+    fun getWorkStatus(): LiveData<MutableList<WorkInfo>> =
+        workManager.getWorkInfosForUniqueWorkLiveData(WORKER_KEY)
 }

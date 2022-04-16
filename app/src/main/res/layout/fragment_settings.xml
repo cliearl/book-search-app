@@ -45,4 +45,38 @@
 
     </RadioGroup>
 
+    <TextView
+        android:id="@+id/tv_title_cache"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="16dp"
+        android:text="Cache policy"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/rg_sort" />
+
+    <androidx.appcompat.widget.SwitchCompat
+        android:id="@+id/sw_cache_delete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="20dp"
+        android:text="Delete periodically"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_title_cache" />
+
+    <TextView
+        android:id="@+id/tv_work_status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="34dp"
+        android:text="Status"
+        android:textColor="@color/teal_200"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/sw_cache_delete"
+        app:layout_constraintTop_toBottomOf="@id/tv_title_cache" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
