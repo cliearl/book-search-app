@@ -2,13 +2,14 @@ package com.qualitybitz.booksearchapp.data.repository
 
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
-import com.qualitybitz.booksearchapp.data.api.RetrofitInstance.api
+import com.qualitybitz.booksearchapp.data.api.BookSearchApi
 import com.qualitybitz.booksearchapp.data.model.Book
 import com.qualitybitz.booksearchapp.util.Constants.PAGING_SIZE
 import retrofit2.HttpException
 import java.io.IOException
 
 class BookSearchPagingSource(
+    private val api: BookSearchApi,
     private val query: String,
     private val sort: String,
 ) : PagingSource<Int, Book>() {

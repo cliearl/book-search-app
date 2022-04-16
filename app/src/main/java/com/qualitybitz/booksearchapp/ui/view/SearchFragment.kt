@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import androidx.paging.LoadState
 import androidx.recyclerview.widget.DividerItemDecoration
@@ -18,12 +19,15 @@ import com.qualitybitz.booksearchapp.ui.adapter.BookSearchPagingAdapter
 import com.qualitybitz.booksearchapp.ui.viewmodel.BookSearchViewModel
 import com.qualitybitz.booksearchapp.util.Constants.SEARCH_BOOKS_TIME_DELAY
 import com.qualitybitz.booksearchapp.util.collectLatestStateFlow
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class SearchFragment : Fragment() {
     private var _binding: FragmentSearchBinding? = null
     private val binding get() = _binding!!
 
-    private lateinit var bookSearchViewModel: BookSearchViewModel
+    //    private lateinit var bookSearchViewModel: BookSearchViewModel
+    private val bookSearchViewModel by activityViewModels<BookSearchViewModel>()
 
     //    private lateinit var bookSearchAdapter: BookSearchAdapter
     private lateinit var bookSearchAdapter: BookSearchPagingAdapter
@@ -39,7 +43,7 @@ class SearchFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        bookSearchViewModel = (activity as MainActivity).bookSearchViewModel
+//        bookSearchViewModel = (activity as MainActivity).bookSearchViewModel
 
         setupRecyclerView()
         searchBooks()
