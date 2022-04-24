@@ -21,8 +21,6 @@ class BookFragment : Fragment() {
 
     private val args by navArgs<BookFragmentArgs>()
 
-    //    private lateinit var bookSearchViewModel: BookSearchViewModel
-//    private val bookSearchViewModel by activityViewModels<BookSearchViewModel>()
     private val bookViewModel by viewModels<BookViewModel>()
 
     override fun onCreateView(
@@ -37,7 +35,6 @@ class BookFragment : Fragment() {
     @SuppressLint("SetJavaScriptEnabled")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-//        bookSearchViewModel = (activity as MainActivity).bookSearchViewModel
 
         val book = args.book
         binding.webview.apply {

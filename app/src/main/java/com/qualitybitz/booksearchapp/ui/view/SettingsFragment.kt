@@ -20,8 +20,6 @@ class SettingsFragment : Fragment() {
     private var _binding: FragmentSettingsBinding? = null
     private val binding get() = _binding!!
 
-    //    private lateinit var bookSearchViewModel: BookSearchViewModel
-//    private val bookSearchViewModel by activityViewModels<BookSearchViewModel>()
     private val settingsViewModel by viewModels<SettingsViewModel>()
 
     override fun onCreateView(
@@ -35,7 +33,6 @@ class SettingsFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-//        bookSearchViewModel = (activity as MainActivity).bookSearchViewModel
 
         saveSettings()
         loadSettings()

@@ -26,11 +26,7 @@ class SearchFragment : Fragment() {
     private var _binding: FragmentSearchBinding? = null
     private val binding get() = _binding!!
 
-    //    private lateinit var bookSearchViewModel: BookSearchViewModel
-//    private val bookSearchViewModel by activityViewModels<BookSearchViewModel>()
     private val searchViewModel by viewModels<SearchViewModel>()
-
-    //    private lateinit var bookSearchAdapter: BookSearchAdapter
     private lateinit var bookSearchAdapter: BookSearchPagingAdapter
 
     override fun onCreateView(
@@ -44,16 +40,10 @@ class SearchFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-//        bookSearchViewModel = (activity as MainActivity).bookSearchViewModel
 
         setupRecyclerView()
         searchBooks()
         setupLoadState()
-
-//        bookSearchViewModel.searchResult.observe(viewLifecycleOwner) { response ->
-//            val books = response.documents
-//            bookSearchAdapter.submitList(books)
-//        }
 
         collectLatestStateFlow(searchViewModel.searchPagingResult) {
             bookSearchAdapter.submitData(it)
@@ -61,7 +51,6 @@ class SearchFragment : Fragment() {
     }
 
     private fun setupRecyclerView() {
-//        bookSearchAdapter = BookSearchAdapter()
         bookSearchAdapter = BookSearchPagingAdapter()
         binding.rvSearchResult.apply {
             setHasFixedSize(true)
@@ -73,7 +62,6 @@ class SearchFragment : Fragment() {
                     DividerItemDecoration.VERTICAL
                 )
             )
-//            adapter = bookSearchAdapter
             adapter = bookSearchAdapter.withLoadStateFooter(
                 footer = BookSearchLoadStateAdapter(bookSearchAdapter::retry)
             )
@@ -97,7 +85,6 @@ class SearchFragment : Fragment() {
                 text?.let {
                     val query = it.toString().trim()
                     if (query.isNotEmpty()) {
-//                        bookSearchViewModel.searchBooks(query)
                         searchViewModel.searchBooksPaging(query)
                         searchViewModel.query = query
                     }
@@ -118,21 +105,7 @@ class SearchFragment : Fragment() {
             binding.rvSearchResult.isVisible = !isListEmpty
 
             binding.progressBar.isVisible = loadState.refresh is LoadState.Loading
-
-//            binding.btnRetry.isVisible = loadState.refresh is LoadState.Error
-//                    || loadState.append is LoadState.Error
-//                    || loadState.prepend is LoadState.Error
-//            val errorState: LoadState.Error? = loadState.append as? LoadState.Error
-//                ?: loadState.prepend as? LoadState.Error
-//                ?: loadState.refresh as? LoadState.Error
-//            errorState?.let {
-//                Toast.makeText(requireContext(), it.error.message, Toast.LENGTH_SHORT).show()
-//            }
         }
-
-//        binding.btnRetry.setOnClickListener {
-//            bookSearchAdapter.retry()
-//        }
     }
 
 

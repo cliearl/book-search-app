@@ -17,7 +17,6 @@ class CacheDeleteWorker @AssistedInject constructor(
 
     override fun doWork(): Result {
         return try {
-//            Log.d("WorkManager", "Cache has successfully deleted")
             Log.d("WorkManager", cacheDeleteResult)
             Result.success()
         } catch (exception: Exception) {
