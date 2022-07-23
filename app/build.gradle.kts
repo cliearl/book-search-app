@@ -49,6 +49,7 @@ android {
         unitTests {
             isIncludeAndroidResources = true
         }
+        animationsDisabled = true
     }
 }
 
@@ -70,6 +71,8 @@ dependencies {
 
     androidTestImplementation(Testing.ANDROID_JUNIT)
     androidTestImplementation(Testing.ESPRESSO_CORE)
+    androidTestImplementation("androidx.test.espresso:espresso-contrib:3.4.0")
+    androidTestImplementation("org.hamcrest:hamcrest:2.2")
     androidTestImplementation("androidx.test:core:1.4.0")  // Test Core
     androidTestImplementation("androidx.test.ext:truth:1.4.0")
     androidTestImplementation("androidx.test:runner:1.4.0")
