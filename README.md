@@ -1,6 +1,6 @@
 # Book Search App
 
-이것은 [냉동코더의 알기 쉬운 Modern Android Development 입문](https://www.inflearn.com/course/%EC%95%8C%EA%B8%B0%EC%89%AC%EC%9A%B4-modern-android)
+이것은 [냉동코더의 알기 쉬운 Modern Android Development 입문](https://www.inflearn.com/course/%EC%95%8C%EA%B8%B0%EC%89%AC%EC%9A%B4-modern-android?inst=c3cee510)
 강의에서 제작한 앱의 소스코드 저장소입니다.
 
 ## Lecture Contents
@@ -85,14 +85,24 @@
 
 - Modern Android Development 입문 강의를 마치며 (MAD score)
 
+### Appendix. Jetpack Test
+
+- 안드로이드 테스트 자동화 기초
+- PracticeA1-Local Unit Test 맛보기 (JUnit4, Truth, @SmallTest, @Before)
+- PracticeA2-Instrumented Unit Test 맛보기 (Runner, Roboletric, runTest, TestSuite)
+- PracticeA3-통합 테스트 맛보기 (Test Double, Hilt)
+- PracticeA4-종단간 테스트 맛보기 (Espresso)
+
 ## Tech Stacks
 
 - Minimum SDK level 23
+
 - Open-source Libraries
     - [Retrofit](https://github.com/square/retrofit)
     - [Moshi](https://github.com/square/moshi)
     - [Okhttp](https://github.com/square/okhttp)
     - [Coil](https://github.com/coil-kt/coil)
+    - [Roboletric](https://github.com/robolectric/robolectric)
 
 - [Jetpack](https://developer.android.com/jetpack)
     - [Navigation](https://developer.android.com/jetpack/androidx/releases/navigation)
@@ -100,6 +110,7 @@
     - [DataStore](https://developer.android.com/jetpack/androidx/releases/datastore)
     - [Paging](https://developer.android.com/jetpack/androidx/releases/paging)
     - [WorkManager](https://developer.android.com/jetpack/androidx/releases/work)
+    - [Test](https://developer.android.com/jetpack/androidx/releases/test)
 
 - Android Architecture Components
     - [View Binding](https://developer.android.com/topic/libraries/view-binding)
