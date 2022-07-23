@@ -18,7 +18,8 @@ android {
         versionCode = DefaultConfig.VERSION_CODE
         versionName = DefaultConfig.VERSION_NAME
 
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+//        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner = "com.qualitybitz.booksearchapp.HiltTestRunner"
     }
 
     buildTypes {
@@ -65,6 +66,7 @@ dependencies {
     testImplementation("org.robolectric:robolectric:4.8.1")
     testImplementation("androidx.test.ext:junit:1.1.3")
     testImplementation("androidx.test:core:1.4.0")
+    testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.6.2")
 
     androidTestImplementation(Testing.ANDROID_JUNIT)
     androidTestImplementation(Testing.ESPRESSO_CORE)
@@ -72,7 +74,9 @@ dependencies {
     androidTestImplementation("androidx.test.ext:truth:1.4.0")
     androidTestImplementation("androidx.test:runner:1.4.0")
     androidTestImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.6.2")
-    
+    androidTestImplementation("com.google.dagger:hilt-android-testing:2.41")
+    kaptAndroidTest("com.google.dagger:hilt-android-compiler:2.41")
+
     // Retrofit
     implementation(Dependencies.RETROFIT)
     implementation(Dependencies.RETROFIT_CONVERTER_MOSHI)
