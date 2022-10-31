@@ -12,8 +12,17 @@ object Versions {
 
     // Testing
     const val JUNIT4 = "4.13.2"
-    const val ANDROID_JUNIT = "1.1.3"
+    const val TEST_EXT_JUNIT = "1.1.3"
     const val ESPRESSO_CORE = "3.4.0"
+    const val TEST_EXT_TRUTH = "1.4.0"
+    const val TEST_RUNNER = "1.4.0"
+    const val ROBOLETRIC = "4.8.1"
+    const val TEST_CORE = "1.4.0"
+    const val COROUTINES_TEST = "1.6.2"
+    const val ESPRESSO_CONTRIB = "3.4.0"
+    const val HAMCREST = "2.2"
+    const val HILT_ANDROID_TESTING = "2.41"
+    const val HILT_ANDROID_COMPILER = "2.41"
 
     // Library
     const val RETROFIT = "2.9.0"

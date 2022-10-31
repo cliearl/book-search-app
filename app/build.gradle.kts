@@ -55,89 +55,89 @@ android {
 
 dependencies {
 
-    implementation(Dependencies.CORE_KTX)
-    implementation(Dependencies.APP_COMPAT)
-    implementation(Dependencies.MATERIAL)
-    implementation(Dependencies.CONSTRAINT_LAYOUT)
+    implementation(Dependencies.coreKtx)
+    implementation(Dependencies.appCompat)
+    implementation(Dependencies.material)
+    implementation(Dependencies.constraintLayout)
 
     // Test
-    testImplementation(Testing.JUNIT4)
-    testImplementation("androidx.test.ext:truth:1.4.0")
-    testImplementation("androidx.test:runner:1.4.0")
-    testImplementation("org.robolectric:robolectric:4.8.1")
-    testImplementation("androidx.test.ext:junit:1.1.3")
-    testImplementation("androidx.test:core:1.4.0")
-    testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.6.2")
+    testImplementation(Testing.junit4)
+    testImplementation(Testing.textExtTruth)
+    testImplementation(Testing.textRunner)
+    testImplementation(Testing.roboletric)
+    testImplementation(Testing.testExtJunit)
+    testImplementation(Testing.testCore)
+    testImplementation(Testing.coroutineTest)
 
-    androidTestImplementation(Testing.ANDROID_JUNIT)
-    androidTestImplementation(Testing.ESPRESSO_CORE)
-    androidTestImplementation("androidx.test.espresso:espresso-contrib:3.4.0")
-    androidTestImplementation("org.hamcrest:hamcrest:2.2")
-    androidTestImplementation("androidx.test:core:1.4.0")  // Test Core
-    androidTestImplementation("androidx.test.ext:truth:1.4.0")
-    androidTestImplementation("androidx.test:runner:1.4.0")
-    androidTestImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.6.2")
-    androidTestImplementation("com.google.dagger:hilt-android-testing:2.41")
-    kaptAndroidTest("com.google.dagger:hilt-android-compiler:2.41")
+    androidTestImplementation(Testing.testExtJunit)
+    androidTestImplementation(Testing.espressoCore)
+    androidTestImplementation(Testing.espressoContrib)
+    androidTestImplementation(Testing.hamcrest)
+    androidTestImplementation(Testing.testCore)
+    androidTestImplementation(Testing.textExtTruth)
+    androidTestImplementation(Testing.textRunner)
+    androidTestImplementation(Testing.coroutineTest)
+    androidTestImplementation(Testing.hiltAndroidTesting)
+    kaptAndroidTest(Testing.hiltAndroidCompiler)
 
     // Retrofit
-    implementation(Dependencies.RETROFIT)
-    implementation(Dependencies.RETROFIT_CONVERTER_MOSHI)
+    implementation(Dependencies.retrofit)
+    implementation(Dependencies.retrofitConverterMoshi)
 
     // Moshi
-    implementation(Dependencies.MOSHI)
-    kapt(Dependencies.MOSHI_KAPT)
+    implementation(Dependencies.moshi)
+    kapt(Dependencies.moshiKapt)
 
     // Okhttp
-    implementation(Dependencies.OKHTTP)
-    implementation(Dependencies.OKHTTP_LOGGING_INTERCEPTOR)
+    implementation(Dependencies.okhttp)
+    implementation(Dependencies.okhttpLoggingInterceptor)
 
     // Lifecycle
-    implementation(Dependencies.LIFECYCLE_VIEWMODEL_KTX)
-    implementation(Dependencies.LIFECYCLE_RUNTIME_KTX)
-    implementation(Dependencies.LIFECYCLE_VIEWMODEL_KTX)
+    implementation(Dependencies.lifecycleViewmodelKtx)
+    implementation(Dependencies.lifecycleRuntimeKtx)
+    implementation(Dependencies.lifecycleViewmodelSavedstate)
 
     // Coroutine
-    implementation(Dependencies.COROUTINE_CORE)
-    implementation(Dependencies.COROUTINE_ANDROID)
+    implementation(Dependencies.coroutinesCore)
+    implementation(Dependencies.coroutinesAndroid)
 
     // Coil
-    implementation(Dependencies.COIL)
+    implementation(Dependencies.coil)
 
     // Recyclerview
-    implementation(Dependencies.RECYCLERVIEW)
+    implementation(Dependencies.recyclerview)
 
     // Navigation
-    implementation(Dependencies.NAVIGATION_FRAGMENT_KTX)
-    implementation(Dependencies.NAVIGATION_UI_KTX)
+    implementation(Dependencies.navigationFragementKtx)
+    implementation(Dependencies.navigationUiKtx)
 
     // Room
-    implementation(Dependencies.ROOM_RUNTIME)
-    implementation(Dependencies.ROOM_KTX)
-    kapt(Dependencies.ROOM_KAPT)
-    implementation(Dependencies.ROOM_PAGING)
+    implementation(Dependencies.roomRuntime)
+    implementation(Dependencies.roomKtx)
+    kapt(Dependencies.roomKapt)
+    implementation(Dependencies.roomPaging)
 
     // Kotlin serialization
-    implementation(Dependencies.KOTLIN_SERIALIZATION)
+    implementation(Dependencies.kotlinSerialization)
 
     // DataStore
-    implementation(Dependencies.PREFERENCES_DATASTORE)
+    implementation(Dependencies.preferencesDatastore)
 
     // Paging
-    implementation(Dependencies.PAGING)
+    implementation(Dependencies.paging)
 
     // WorkManager
-    implementation(Dependencies.WORKMANGER)
+    implementation(Dependencies.workmanager)
 
     // Hilt
-    implementation(Dependencies.DAGGER_HILT)
-    kapt(Dependencies.DAGGER_HILT_KAPT)
+    implementation(Dependencies.daggerHilt)
+    kapt(Dependencies.daggerHiltKapt)
 
     // ViewModel delegate
-    implementation(Dependencies.ACTIVITY_KTX)
-    implementation(Dependencies.FRAGMENT_KTX)
+    implementation(Dependencies.activityKtx)
+    implementation(Dependencies.fragmentKtx)
 
     // Hilt extension
-    implementation(Dependencies.HILT_EXTENSION_WORK)
-    kapt(Dependencies.HILT_EXTENSION_KAPT)
+    implementation(Dependencies.hiltExtensionWork)
+    kapt(Dependencies.hitlExtensionKapt)
 }
