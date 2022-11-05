@@ -21,7 +21,7 @@ class SettingsViewModel @Inject constructor(
 ) : ViewModel() {
 
     // DataStore
-    fun saveSortMode(value: String) = viewModelScope.launch(Dispatchers.IO) {
+    fun saveSortMode(value: String) = viewModelScope.launch {
         bookSearchRepository.saveSortMode(value)
     }
 
@@ -29,7 +29,7 @@ class SettingsViewModel @Inject constructor(
         bookSearchRepository.getSortMode().first()
     }
 
-    fun saveCacheDeleteMode(value: Boolean) = viewModelScope.launch(Dispatchers.IO) {
+    fun saveCacheDeleteMode(value: Boolean) = viewModelScope.launch {
         bookSearchRepository.saveCacheDeleteMode(value)
     }
 

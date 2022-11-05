@@ -7,7 +7,6 @@ import androidx.paging.cachedIn
 import com.qualitybitz.booksearchapp.data.model.Book
 import com.qualitybitz.booksearchapp.data.repository.BookSearchRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.stateIn
@@ -26,11 +25,11 @@ class FavoriteViewModel @Inject constructor(
             .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5000), PagingData.empty())
 
     // Room
-    fun saveBook(book: Book) = viewModelScope.launch(Dispatchers.IO) {
+    fun saveBook(book: Book) = viewModelScope.launch {
         bookSearchRepository.insertBooks(book)
     }
 
-    fun deleteBook(book: Book) = viewModelScope.launch(Dispatchers.IO) {
+    fun deleteBook(book: Book) = viewModelScope.launch {
         bookSearchRepository.deleteBooks(book)
     }
 }
