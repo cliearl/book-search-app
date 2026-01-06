@@ -62,7 +62,7 @@
 - [Practice8A-Room 응답에 Paging 적용하기 (Pager, PagingDataAdapter)](/scripts/082.md)
 - [Practice8B-Retrofit 응답에 Paging 적용하기 (PagingSource)](/scripts/083.md)
 - [Practice8C-네트워크 로딩 상태 핸들링하기 (LoadState, LoadStateAdapter)](/scripts/084.md)
-- [Practice8D-RemoteMediator 적용하기 (동영상 강의 없음)](085.md)
+- [Practice8D-RemoteMediator 적용하기 (동영상 강의 없음)](/scripts/085.md)
 
 ### 섹션 9. Jetpack WorkManager
 
